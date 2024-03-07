@@ -134,8 +134,7 @@ void loop()
 
 
 
-### RESULTS
-
-
+### RESULTS:
+Thus the Error value between the actual value and measured value is calculated with the help of ultrasonic sensor.
 
  
