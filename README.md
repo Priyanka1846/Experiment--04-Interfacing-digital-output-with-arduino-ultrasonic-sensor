@@ -1,4 +1,9 @@
 # EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
+# DATE : 07-03-2024
+# NAME : PRIYANKA K
+# ROLL NUMBER : 212223230162
+# DEPARTMENT : ARTIFICIAL INTELLIGENCE AND DATA SCIENCE
+
 
 ## AIM: 
 To interface an ultrasonic pair and measure the distance in centimeters , calculate the error
@@ -55,14 +60,61 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+const int trigpin=10;
+const int echopin=9;
+int red=7;
+int green=6;
+long duration;
+float distance;
 
+void setup()
+{
+  pinMode(trigpin, OUTPUT);
+  pinMode(echopin, INPUT);
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  digitalWrite(trigpin,LOW);
+  delay(20);
+  digitalWrite(trigpin,HIGH);
+  delay(20);
+  digitalWrite(trigpin,LOW);
+  duration=pulseIn(echopin,HIGH);
+  distance=duration*(0.034/2);
+  Serial.print(distance);
+  Serial.println("cms");
+  
+  if(distance>5)
+  {
+    digitalWrite(red,HIGH);
+    delay(20);
+    digitalWrite(red,LOW);
+    delay(20); 
+  }
+  else
+  {
+    digitalWrite(green,HIGH);
+    delay(200);
+    digitalWrite(green,HIGH);
+    delay(200);
+  }  
+}
+```
+### Circuit diagram: 
+![image](https://github.com/Priyanka1846/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/139425809/5238cb13-73fe-43ec-86ee-16477326dfbd)
 
+### Schematic diagram:
+![image](https://github.com/Priyanka1846/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/139425809/45627ff5-04e5-4e4e-8725-4b5ccdcb1055)
 
+### Distance vs measurement table:
+![image](https://github.com/Priyanka1846/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/139425809/2f743656-f6c0-4113-9835-6313f9f62cbc)
 
-
-
-### Distance vs measurement table 
-
+### Graph:
+![image](https://github.com/Priyanka1846/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/139425809/c1c52124-8447-47ec-9d6d-25526eb033ad)
 			
  
 			
